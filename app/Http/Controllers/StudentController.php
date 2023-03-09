@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
@@ -11,15 +12,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $data=[
-            ['name'=>"HAN",
-            'age'=>"18"],
-            ['name'=>"AMY",
-            'age'=>"20"],
-            ['name'=>"NOAH",
-            'age'=>"22"]
-        ];
-        return view('students.index',["data"=>$data,'name'=>'name']);
+        // $data= Student::take(3)->get();
+        $data= Student::where('name', 'amy')
+               ->get();
+        dd($data);
+        return view('students.index');
     }
 
     /**
