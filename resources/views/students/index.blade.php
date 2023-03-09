@@ -12,15 +12,15 @@
         <a href="{{route('student.excel')}}">student_excel</a>
         <a href="{{route('student.child')}}">student_child</a>
 
+        @foreach ($data as $user)
+        <p>{{ $user['name'] }}</p>
+        @endforeach
+        <h1>123</h1>
+
         @php
         dd($data);
         @endphp
 
-        @foreach ($data as $user)
-        <p>{{ $user['name'] }}</p>
-        @endforeach
-
-        
 
 </body>
 </html>
