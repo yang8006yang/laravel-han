@@ -13,10 +13,11 @@ class StudentController extends Controller
     public function index()
     {
         // $data= Student::take(3)->get();
-        $data= Student::where('name', 'amy')
-               ->get();
-        dd($data);
-        return view('students.index');
+        // $data= Student::where('name', 'amy')
+        //        ->get();
+        $data= Student::all();
+        // dd($data);
+        return view('students.index',['data' => $data]);
     }
 
     /**
@@ -24,7 +25,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        // dd($data);
+        return view('students.create');
     }
 
     /**
@@ -33,6 +35,14 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+        $data = new Student;
+ 
+        $data->name = $request->name;
+        $data->age = $request->age;
+ 
+        $data->save();
+ 
+        return redirect('students.index');
     }
 
     /**

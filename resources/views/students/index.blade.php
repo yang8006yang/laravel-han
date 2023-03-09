@@ -11,32 +11,28 @@
 <body>
 
 <div class="container">
-  <h2>Basic Table</h2>
+    <h2>Basic Table</h2>
+    <a href="{{route('students.create')}}" class="btn btn-success">單筆新增</a>
   <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
   <table class="table">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>ID</th>
+        <th>name</th>
+        <th>age</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
+      @foreach ($data as $user)
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td>{{ $user['id'] }}</td>
+        <td>{{ $user['name'] }}</td>
+        <td>{{ $user['age'] }}</td>
+        <td></td>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+      @endforeach
+      
     </tbody>
   </table>
 </div>
